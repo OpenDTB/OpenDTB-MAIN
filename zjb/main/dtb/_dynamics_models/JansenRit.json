@@ -1,0 +1,77 @@
+{
+    "name": "JansenRit",
+    "state_variables": {
+        "y_0": {
+            "expression": "y_3"
+        },
+        "y_1": {
+            "expression": "y_4"
+        },
+        "y_2": {
+            "expression": "y_5"
+        },
+        "y_3": {
+            "expression": "A * a * sigm_y1_y2 - 2.0 * a * y_3 - a * a * y_0"
+        },
+        "y_4": {
+            "expression": "A * a * (mu + a_2 * J * sigm_y0_1 + C) - 2.0 * a * y_4 - a * a * y_1"
+        },
+        "y_5": {
+            "expression": "B * b * (a_4 * J * sigm_y0_3) - 2.0 * b * y_5 - b * b * y_2"
+        }
+    },
+    "coupling_variables": {
+        "C": {
+            "expression": "__C @ (2.0 * nu_max / (1.0 + np.exp(r * (v0 - (y_1 - y_2)))))"
+        }
+    },
+    "transient_variables": {
+        "sigm_y1_y2": {
+            "expression": "2.0 * nu_max / (1.0 + np.exp(r * (v0 - (y_1 - y_2))))"
+        },
+        "sigm_y0_1": {
+            "expression": "2.0 * nu_max / (1.0 + np.exp(r * (v0 - (a_1 * J * y_0))))"
+        },
+        "sigm_y0_3": {
+            "expression": "2.0 * nu_max / (1.0 + np.exp(r * (v0 - (a_3 * J * y_0))))"
+        }
+    },
+    "parameters": {
+        "A": 3.25,
+        "B": 22.0,
+        "a": 0.1,
+        "b": 0.05,
+        "v0": 5.52,
+        "nu_max": 0.0025,
+        "r": 0.56,
+        "J": 135.0,
+        "a_1": 1.0,
+        "a_2": 0.8,
+        "a_3": 0.25,
+        "a_4": 0.25,
+        "p_min": 0.12,
+        "p_max": 0.32,
+        "mu": 0.22
+    },
+    "docs":{
+        "A": "Maximum amplitude of EPSP [mV]. Also called average synaptic gain.",
+        "B" :"Maximum amplitude of IPSP [mV]. Also called average synaptic gain.",
+        "a" :"Reciprocal of the time constant of passive membrane and all other spatially distributed delays in the dendritic network [ms^-1]. Also called average synaptic time constant.",
+        "b" :"Reciprocal of the time constant of passive membrane and all other spatially distributed delays in the dendritic network [ms^-1]. Also called average synaptic time constant.",
+        "v0" :"Firing threshold (PSP) for which a 50% firing rate is achieved. In other words, it is the value of the average membrane potential corresponding to the inflection point of the sigmoid [mV]. The usual value for this parameter is 6.0.",
+        "nu_max" :"Determines the maximum firing rate of the neural population [s^-1].",
+        "r" :"Steepness of the sigmoidal transformation [mV^-1].",
+        "J" :"Average number of synapses between populations.",
+        "a_1" :"Average probability of synaptic contacts in the feedback excitatory loop.",
+        "a_2" :"Average probability of synaptic contacts in the slow feedback excitatory loop.",
+        "a_3" :"Average probability of synaptic contacts in the feedback inhibitory loop.",
+        "a_4" :"Average probability of synaptic contacts in the slow feedback inhibitory loop.",
+        "p_min" :"Minimum input firing rate.",
+        "p_max" :"Maximum input firing rate.",
+        "mu" :"Mean input firing rate"
+    },
+    "references": [
+        "[JR_1995]  Jansen, B., H. and Rit V., G., *Electroencephalogram and visual evoked potential generation in a mathematical model of coupled cortical columns*, Biological Cybernetics (73) 357:366, 1995.",
+        "[J_1993] Jansen, B., Zouridakis, G. and Brandt, M., *A neurophysiologically-based mathematical model of flash visual evoked potentials*"
+    ]
+}

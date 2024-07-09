@@ -1,0 +1,47 @@
+{
+    "name": "ReducedWongWang",
+    "state_variables": {
+        "S": {
+            "expression": "- (S / tau_s) + (1 - S) * gamma * H"
+        }
+    },
+    "coupling_variables": {
+        "C": {
+            "expression": "__C @ S"
+        }
+    },
+    "transient_variables": {
+        "x": {
+            "expression": "w * J_N * S + G * J_N * C + I_0"
+        },
+        "H": {
+            "expression": "(a * x - b) / (1 - np.exp(-d * (a * x - b)))"
+        }
+    },
+    "parameters": {
+        "a": 0.27,
+        "b": 0.108,
+        "d": 154.0,
+        "gamma": 0.641,
+        "tau_s": 100.0,
+        "w": 0.6,
+        "J_N": 0.2609,
+        "I_0": 0.33,
+        "G": 1.0
+    },
+    "docs":{
+        "a" :"[n/C]. Input gain parameter, chosen to fit numerical solutions.",
+        "b" :"[kHz]. Input shift parameter chosen to fit numerical solutions.",
+        "d" :"[ms]. Parameter chosen to fit numerical solutions.",
+        "gamma" :"Kinetic parameter",
+        "tau_s" :"Kinetic parameter. NMDA decay time constant.",
+        "w" :"Excitatory recurrence",
+        "J_N" :"Excitatory recurrence",
+        "I_0" :"[nA] Effective external input",
+        "G" :"Global coupling scaling"
+    },
+    "references": [
+        "[WW_2006] Kong-Fatt Wong and Xiao-Jing Wang,  *A Recurrent Network Mechanism of Time Integration in Perceptual Decisions*. Journal of Neuroscience 26(4), 1314-1328, 2006.",
+        "[DPA_2013] Deco Gustavo, Ponce Alvarez Adrian, Dante Mantini, Gian Luca Romani, Patric Hagmann and Maurizio Corbetta. *Resting-State Functional Connectivity Emerges from Structurally and Dynamically Shaped Slow Linear Fluctuations*. The Journal of Neuroscience 32(27), 11239-11252, 2013."
+    ]
+}

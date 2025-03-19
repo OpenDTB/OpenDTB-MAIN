@@ -1,7 +1,7 @@
 
 该平台为中国科学院自动化研究所脑网络组开发的灵活, 高效, 易扩展, 用户友好的数字孪生脑仿真平台, 为基于数字孪生脑的脑科学研究范式[<sup>1</sup>](#ref-1)提供支持. 平台支持构建由不同脑图谱, 不同动力学模型和多模态信息约束的数字孪生脑, 并能够对构建的数字孪生脑模型进行高效地仿真和参数空间探索, 对仿真结果进行多样的分析. 用户可以容易地实现自定义动力学模型, 仿真参数和分析方法等.
 
-- 文档: https://zjb-docs.readthedocs.io
+- 文档: https://OpenDTB-docs.readthedocs.io
 - 资源: https://github.com/OpenDTB/OpenDTB-Assets
 - 源代码:
     - Python库: https://github.com/OpenDTB/OpenDTB-MAIN
